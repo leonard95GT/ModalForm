@@ -1,0 +1,325 @@
+<form id="Form1" name="Form1" class="ant-form ant-form-horizontal">
+  <div class="steps-content">
+    <div class="ant-row ant-form-item field_plan">
+      <div class="ant-col ant-form-item-label">
+        <label for="modal_form_plan" class="ant-form-item-required">
+          <span>Endereço Escritório Virtual</span>
+        </label>
+      </div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control">
+          <span class="ant-form-item-children">
+            <select class="ant-input ant-select ant-input-lg" placeholder="Endereço" name="plan" id="modal_form_plan">
+              <option value="1" selected="selected">Av. Paulista</option>
+            </select>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item bigtabs field_pessoa">
+      <div class="ant-col ant-form-item-label">
+        <label for="modal_form_pessoa" class="ant-form-item-required">
+          <span>
+            Tipo de contratante
+            <i aria-label="icon: question-circle-o" class="anticon anticon-question-circle-o" title="Se você esta abrindo uma empresa pode mudar para pessoa jurídica depois de aberta sua empresa">
+              <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="question-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
+                <path d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0 1 30.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1 0 80 0 40 40 0 1 0-80 0z"></path>
+              </svg>
+            </i>
+          </span>
+        </label>
+      </div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control has-success">
+          <span class="ant-form-item-children">
+            <div class="ant-radio-group ant-radio-group-outline" id="modal_form_pessoa">
+              <label class="ant-radio-button-wrapper ant-radio-button-wrapper-checked">
+                <span class="ant-radio-button ant-radio-button-checked">
+                  <input name="pessoa" type="radio" class="ant-radio-button-input" value="fisica" checked>
+                  <span class="ant-radio-button-inner"></span>
+                </span>
+                <span>
+                  <i aria-label="icon: user" class="anticon anticon-user">
+                    <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="user" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                      <path d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path>
+                    </svg>
+                  </i>
+                  &nbsp;Pessoa física
+                </span>
+              </label><label class="ant-radio-button-wrapper">
+                <span class="ant-radio-button">
+                  <input name="pessoa" type="radio" class="ant-radio-button-input" value="juridica">
+                  <span class="ant-radio-button-inner"></span>
+                </span>
+                <span>
+                  <i aria-label="icon: bank" class="anticon anticon-bank">
+                    <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="bank" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                      <path d="M894 462c30.9 0 43.8-39.7 18.7-58L530.8 126.2a31.81 31.81 0 0 0-37.6 0L111.3 404c-25.1 18.2-12.2 58 18.8 58H192v374h-72c-4.4 0-8 3.6-8 8v52c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-52c0-4.4-3.6-8-8-8h-72V462h62zM512 196.7l271.1 197.2H240.9L512 196.7zM264 462h117v374H264V462zm189 0h117v374H453V462zm307 374H642V462h118v374z"></path>
+                    </svg>
+                  </i>
+                  &nbsp;Pessoa Jurídica
+                </span>
+              </label>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item  field_razao_social" style="display: none">
+      <div class="ant-col ant-form-item-label">
+        <label for="modal_form_razon_social" class="ant-form-item-required" title="">
+          <span>Razão Social</span>
+        </label>
+      </div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control">
+          <span class="ant-form-item-children">
+            <input placeholder="" type="text" name="razao_social" id="modal_form_razao_social" class="ant-input ant-input-lg" value="">
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item  field_cnpj" style="display: none">
+      <div class="ant-col ant-form-item-label"><label for="modal_form_cnpj" class="ant-form-item-required" title=""><span>CNPJ&nbsp;</span></label></div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control"><span class="ant-form-item-children"><input name="cnpj" maxlength="18" placeholder="" type="text" id="modal_form_cnpj" class="ant-input" value=""></span></div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item  field_name">
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control">
+          <span class="ant-form-item-children">
+            <div id="nameForm_">
+              <div class="ant-row-flex ant-row-flex-space-between" style="margin-left: -10px; margin-right: -10px;">
+                <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-12" style="padding-left: 10px; padding-right: 10px;">
+                  <div class="ant-row ant-form-item" style="margin: 0px;">
+                    <div class="ant-col ant-form-item-label">
+                      <label for="modal_form_first_name" class="ant-form-item-required" title="">
+                        <span>Primeiro nome</span>
+                      </label>
+                    </div>
+                    <div class="ant-col ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control"><span class="ant-form-item-children"><input name="first_name" placeholder="José" minlength="3" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_first_name" value=""></span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-12" style="padding-left: 10px; padding-right: 10px;">
+                  <div class="ant-row ant-form-item" style="margin: 0px;">
+                    <div class="ant-col ant-form-item-label">
+                      <label for="modal_form_last_name" class="ant-form-item-required" title="">
+                        <span>Sobrenome</span>
+                      </label>
+                    </div>
+                    <div class="ant-col ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control"><span class="ant-form-item-children"><input name="last_name" placeholder="Lima" minlength="3" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_last_name" value=""></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item  field_email">
+      <div class="ant-col ant-form-item-label">
+        <label for="modal_form_email" class="ant-form-item-required">
+          <span>
+            E-mail
+            <!-- <i aria-label="icon: question-circle-o" class="anticon anticon-question-circle-o" title="Este email sera usado para iniciar sessão na plataforma">
+              <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="question-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
+                <path d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0 1 30.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1 0 80 0 40 40 0 1 0-80 0z"></path>
+              </svg>
+            </i> -->
+          </span>
+        </label>
+      </div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control">
+          <span class="ant-form-item-children">
+            <input placeholder="nome@minhaempresa.com.br" name="email" type="text" id="modal_form_email" class="ant-input ant-input-lg" value="">
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item  field_cpf">
+      <div class="ant-col ant-form-item-label">
+        <label for="modal_form_cpf" class="ant-form-item-required" title="">
+          <span>CPF</span>
+        </label>
+      </div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control">
+          <span class="ant-form-item-children">
+            <input name="cpf" maxlength="14" placeholder="" type="text" id="modal_form_cpf" class="ant-input" value="">
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item  field_phone">
+      <div class="ant-col ant-form-item-label">
+        <label for="modal_form_phone" class="ant-form-item-required" title="">
+          <span>Celular</span>
+        </label>
+      </div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control">
+          <span class="ant-form-item-children">
+            <input name="phone" maxlength="16" placeholder="(11) 11111-1111" type="text" id="modal_form_phone" class="ant-input" value="">
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item  field_address">
+      <div class="ant-col ant-form-item-label">
+        <label class="ant-form-item-required" title="">
+          <span>Endereço</span>
+        </label>
+      </div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control">
+          <span class="ant-form-item-children">
+            <div id="addressForm">
+              <div class="ant-row-flex ant-row-flex-space-between" style="margin-left: -5px; margin-right: -5px;">
+                <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-8" style="padding-left: 5px; padding-right: 5px;">
+                  <div class="ant-row ant-form-item" style="margin-bottom: 10px;">
+                    <div class="ant-col ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input name="address_zip_code" placeholder="CEP" minlength="8" maxlength="9" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_address_zip_code" value="">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-16" style="padding-left: 5px; padding-right: 5px;">
+                  <div class="ant-row ant-form-item" style="margin-bottom: 10px;">
+                    <div class="ant-col ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input name="address_street" placeholder="Nome da Rua" minlength="5" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_address_street" value="">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ant-row-flex ant-row-flex-space-between" style="margin-left: -5px; margin-right: -5px;">
+                <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-4 ant-col-md-offset-0" style="padding-left: 5px; padding-right: 5px;">
+                  <div class="ant-row ant-form-item" style="margin-bottom: 10px;">
+                    <div class="ant-col ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input name="address_number" placeholder="Nº" minlength="1" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_address_number" value="">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-8" style="padding-left: 5px; padding-right: 5px;">
+                  <div class="ant-row ant-form-item" style="margin-bottom: 10px;">
+                    <div class="ant-col ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input name="address_complement" placeholder="Complemento" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_address_complement" value="">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-8" style="padding-left: 5px; padding-right: 5px;">
+                  <div class="ant-row ant-form-item" style="margin-bottom: 10px;">
+                    <div class="ant-col ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input name="address_city" placeholder="Cidade" minlength="5" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_address_city" value="">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-4" style="padding-left: 5px; padding-right: 5px;">
+                  <div class="ant-row ant-form-item" style="margin-bottom: 10px;">
+                    <div class="ant-col ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input name="address_state" placeholder="UF" minlength="2" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_address_state" value="">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ant-row-flex ant-row-flex-space-between" style="margin-left: -5px; margin-right: -5px; display: none;">
+                <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-24" style="padding-left: 5px; padding-right: 5px;">
+                  <div class="ant-row ant-form-item" style="margin-bottom: 10px;">
+                    <div class="ant-col ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input name="address_district" placeholder="Bairro" minlength="3" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_address_district" value="">
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item  field_checkout" style="display: none;">
+      <div class="ant-col ant-form-item-label">
+        <label for="modal_form_checkout" class="" title="">
+          <span>&nbsp;</span>
+        </label>
+      </div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control has-success">
+          <span class="ant-form-item-children">
+            <input type="text" id="modal_form_checkout" class="ant-input ant-input-lg" value="true">
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item  field_terms_and_conditions">
+      <div class="ant-col ant-form-item-label">
+        <label for="modal_form_terms_and_conditions" class="ant-form-item-required" title="">
+          <span>Termos e condições</span>
+        </label>
+      </div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control">
+          <span class="ant-form-item-children">
+            <div class="ant-checkbox-group" id="modal_form_terms_and_conditions">
+              <label class="ant-checkbox-wrapper">
+                <span class="ant-checkbox">
+                  <input name="terms_and_conditions" type="checkbox" class="ant-checkbox-input" value="true">
+                  <span class="ant-checkbox-inner"></span>
+                </span>
+                <span>Aceito os<a href="/termos-e-condicoes/escritorio-virtual" target="_blank" style="margin-left: 5px;">Termos e condições</a></span>
+              </label>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ant-row-flex ant-row-flex-space-between steps-action">
+    <div class="ant-col ant-col-12" style="text-align: left;"></div>
+    <div class="ant-col ant-col-12">
+      <button type="button" class="ant-btn ant-btn-secondary" disabled>
+        <span>Seguinte </span>
+        <i aria-label="icon: right" class="anticon anticon-right">
+          <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="right"
+            width="1em" height="1em" fill="currentColor" aria-hidden="true">
+            <path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>
+          </svg>
+        </i>
+      </button>
+    </div>
+  </div>
+</form>
