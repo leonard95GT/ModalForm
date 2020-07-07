@@ -255,7 +255,7 @@ $(function () {
   });
   $(document).on('click', '.ModalToggle', function (e) {
     var _productId = e.target.dataset.product;
-    var _product = products[_productId];
+    var _product = window.products[_productId];
     showModal(_product);
   });
   $(document).on('mousedown', '.ant-modal-wrap', function (e) {
