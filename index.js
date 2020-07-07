@@ -112,6 +112,55 @@ var $ = jQuery,
       required: true,
       errorMessage: "Precisa aceitar os termos e condições"
     }
+  },
+  Form3: {
+    payment_mode: {
+      value: "boleto",
+      required: true
+    },
+    cc_number: {
+      value: "",
+      mask: '9999 9999 9999 9999',
+      required: function required() {
+        return this.payment_mode == "cartao";
+      },
+      errorMessage: "Este campo é obrigatório",
+      patternMessage: "Cartão inválido",
+      pattern: function pattern(v) {
+        return /^[0-9]{4} ?[0-9]{4} ?[0-9]{4} ?[0-9]{4}$/.test(String(v).toLowerCase());
+      }
+    },
+    cc_name: {
+      value: "",
+      required: function required() {
+        return this.payment_mode == "cartao";
+      },
+      errorMessage: "Este campo é obrigatório"
+    },
+    cc_expiry: {
+      value: "",
+      mask: '99-99',
+      required: function required() {
+        return this.payment_mode == "cartao";
+      },
+      patternMessage: "Campo inválido",
+      pattern: function pattern(v) {
+        return /^[0-9]{2}-?[0-9]{2}$/.test(String(v).toLowerCase());
+      }
+    },
+    cvc: {
+      value: "",
+      mask: {
+        regex: "\\d{3,4}"
+      },
+      required: function required() {
+        return this.payment_mode == "cartao";
+      },
+      patternMessage: "Campo inválido",
+      pattern: function pattern(v) {
+        return /^[0-9]{3,4}$/.test(String(v).toLowerCase());
+      }
+    }
   }
 };
 var checkedIcon = "\n  <i aria-label=\"icon: check\" class=\"anticon anticon-check ant-steps-finish-icon\"><svg viewBox=\"64 64 896 896\" focusable=\"false\" class=\"\" data-icon=\"check\" width=\"1em\" height=\"1em\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z\"></path></svg></i>\n";
@@ -181,11 +230,14 @@ $(function () {
                 field = _ref8[0],
                 mask = _ref8[1].mask;
 
-            if (!mask) return;
+            if (mask) $(_form1.get(0)[field]).inputmask(mask);
+          });
+          Object.entries(forms.Form3).forEach(function (_ref9) {
+            var _ref10 = _slicedToArray(_ref9, 2),
+                field = _ref10[0],
+                mask = _ref10[1].mask;
 
-            var _field = _form1.get(0)[field];
-
-            Inputmask(mask).mask(_field);
+            if (mask) $(_form3.get(0)[field]).inputmask(mask);
           });
           _form2.find('.product-name').get(0).innerText = product.name;
           _form2.find('.product-detail').get(0).innerText = (_product$plan_address = product.plan_addresses[0]) === null || _product$plan_address === void 0 ? void 0 : _product$plan_address.name;
@@ -216,17 +268,16 @@ $(function () {
 
     var _element = $(e.target).closest('.ant-radio-button-wrapper');
 
-    var _siblings = $(e.target).closest('.ant-radio-button-wrapper').siblings();
-
-    _siblings.toggleClass('ant-radio-button-wrapper-checked').find('.ant-radio-button').toggleClass('ant-radio-button-checked').end();
-
     _element.toggleClass('ant-radio-button-wrapper-checked').find('.ant-radio-button').toggleClass('ant-radio-button-checked').end();
 
-    _siblings.find('.ant-radio-button-input').attr('checked', false);
+    _element.siblings().toggleClass('ant-radio-button-wrapper-checked').find('.ant-radio-button').toggleClass('ant-radio-button-checked').end();
+
+    _element.siblings().find('.ant-radio-button-input').attr('checked', false);
 
     _element.find('.ant-radio-button-input').attr('checked', true);
 
     if (_group.attr('id') == 'modal_form_pessoa') changeEntity(e.target.value);
+    if (_group.attr('id') == 'modal_form_payment_mode') changePayment(e.target.value);
   });
   $(document).on('change', '.ant-checkbox-group .ant-checkbox-input', function (e) {
     var _element = $(e.target).closest('.ant-checkbox-wrapper');
@@ -237,23 +288,16 @@ $(function () {
   });
   $(document).on('click', '.ant-form .steps-action .ant-btn.ant-btn-link', prevStep);
   $(document).on('click', '.ant-form .steps-action .ant-btn.ant-btn-secondary', function (e) {
-    var _validateForm = validateForm(document.Form1),
+    var form = $(e.target).closest('.ant-form').get(0),
+        _validateForm = validateForm(form),
         errors = _validateForm.errors,
         data = _validateForm.data;
 
-    if (!errors.length) temp.data = nextStep(), data;
+    if (!errors.length) nextStep(), temp.data = _objectSpread(_objectSpread({}, temp.data || {}), {}, _defineProperty({}, form.name, data));
   });
   $(document).on('click', '.ant-form .ant-btn.payment', function (e) {
-    $(e.target).closest('.ant-form').find('.steps-action .ant-btn[type="submit"]').prop('disabled', false);
-
-    var _formData = getFormData(document.Form1); // window.open('./pagar-boleto');
-
-
-    console.log(_formData);
+    $(e.target).closest('.ant-form').find('.steps-action .ant-btn-secondary').prop('disabled', false);
   });
-  var _input = '.ant-form .ant-input[id^="modal_form"]';
-  var _radio = '.ant-radio-group[id^="modal_form"] .ant-radio-button-input';
-  var _checkbox = '.ant-checkbox-group[id^="modal_form"] .ant-checkbox-input';
 
   var _getAddressByZipCode = function functionName(zip_code) {
     var _form = document.Form1;
@@ -292,8 +336,12 @@ $(function () {
     _form2.find('.product-detail').get(0).innerText = _plan === null || _plan === void 0 ? void 0 : _plan.name;
   };
 
+  var _input = '.ant-form .ant-input[id^="modal_form"]';
+  var _radio = '.ant-radio-group[id^="modal_form"] .ant-radio-button-input';
+  var _checkbox = '.ant-checkbox-group[id^="modal_form"] .ant-checkbox-input';
   $(document).on('keyup change', "".concat(_input, ", ").concat(_radio, ", ").concat(_checkbox), function (e) {
-    var _form = document.Form1;
+    var _form = $(e.target).closest('.ant-form').get(0);
+
     var _formModel = forms[_form.name];
 
     var _formData = getFormData(_form);
@@ -302,14 +350,14 @@ $(function () {
 
     var _hasErrors = !!Object.keys(_formErrors).length;
 
-    $('.ant-form .steps-action .ant-btn').prop('disabled', !!_hasErrors);
+    $('.ant-form .steps-action .ant-btn-secondary').prop('disabled', !!_hasErrors);
     var _e$target = e.target,
         field = _e$target.name,
         value = _e$target.value;
 
-    var _ref9 = _formErrors[field] || {},
-        error = _ref9.error,
-        message = _ref9.message;
+    var _ref11 = _formErrors[field] || {},
+        error = _ref11.error,
+        message = _ref11.message;
 
     if (field === 'plan' && value && !error) _changePlan(value);
     if (field === 'address_zip_code' && value && !error) _getAddressByZipCode(value);
@@ -318,19 +366,34 @@ $(function () {
   $(document).on('submit', document.Form3, function (e) {
     e.preventDefault();
     hideModal(window.products[$('.modal-container').attr('id')]);
+
+    var _ref12 = temp.data || {},
+        Form1 = _ref12.Form1,
+        Form3 = _ref12.Form3;
+
+    submit(Form1, Form3);
   });
 });
 
-function submit(data) {
-  delete data.address_district;
+function submit() {
+  var customer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var checkout = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  delete customer.address_district;
 
-  if (data.pessoa == 'fisica') {
-    delete data.razao_social;
-    delete data.cnpj;
-    delete data.address_complement;
+  if (customer.pessoa == 'fisica') {
+    delete customer.razao_social;
+    delete customer.cnpj;
+    delete customer.address_complement;
   }
 
-  console.log(data);
+  if (checkout.payment_mode == 'boleto') {
+    delete checkout.cc_number;
+    delete checkout.cc_name;
+    delete checkout.cc_expiry;
+    delete checkout.cvc;
+  }
+
+  console.log(customer, checkout);
 }
 
 function prevStep() {
@@ -384,6 +447,25 @@ function changeEntity(razao_social) {
   _form.find('.field_cnpj')[_action]();
 }
 
+function changePayment(forma_pagamento) {
+  var _form = $(document.Form3);
+
+  var _formErrors = getFormErrors(_form);
+
+  var _hasErrors = !!Object.keys(_formErrors).length;
+
+  var _toggle = forma_pagamento.match('cartao') ? 'slice' : 'reverse';
+
+  var _toggle2 = ['#boleto', '#cartao'][_toggle](),
+      _toggle3 = _slicedToArray(_toggle2, 2),
+      hiden = _toggle3[0],
+      visible = _toggle3[1];
+
+  _form.find(visible).show();
+
+  _form.find(hiden).hide();
+}
+
 function getFormData(form) {
   var _form = form.get && form.get(0) || form;
 
@@ -395,13 +477,13 @@ function getFormData(form) {
 function getFormErrors(form) {
   var _form = form.get && form.get(0) || form;
 
-  var _formModel = forms[_form.name];
+  var _formModel = forms[_form.name] || {};
 
   var _formData = getFormData(_form);
 
-  return Object.entries(_formModel).reduce(function (errors, _ref10) {
-    var _ref11 = _slicedToArray(_ref10, 1),
-        _field = _ref11[0];
+  return Object.entries(_formModel).reduce(function (errors, _ref13) {
+    var _ref14 = _slicedToArray(_ref13, 1),
+        _field = _ref14[0];
 
     var _validateField = validateField(_field, _formModel, _formData),
         field = _validateField.field,
@@ -418,19 +500,19 @@ function getFormErrors(form) {
 function validateForm(form) {
   var _form = form.get && form.get(0) || form;
 
-  var _formModel = forms[_form.name];
+  var _formModel = forms[_form.name] || {};
 
   var _formData = getFormData(form);
 
   var _formErrors = getFormErrors(form);
 
-  Object.entries(_formModel).forEach(function (_ref13) {
-    var _ref14 = _slicedToArray(_ref13, 1),
-        field = _ref14[0];
+  Object.entries(_formModel).forEach(function (_ref16) {
+    var _ref17 = _slicedToArray(_ref16, 1),
+        field = _ref17[0];
 
-    var _ref15 = _formErrors[field] || {},
-        error = _ref15.error,
-        message = _ref15.message;
+    var _ref18 = _formErrors[field] || {},
+        error = _ref18.error,
+        message = _ref18.message;
 
     toggleError(field, error, message);
   });

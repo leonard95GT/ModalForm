@@ -1,15 +1,126 @@
 <form id="Form3" name="Form3" class="ant-form ant-form-horizontal" hidden>
   <div class="steps-content">
-    <button type="button" class="ant-btn payment" style="width: 100%;">
-      <span>Gerar Boleto Bancário</span>
-      <i aria-label="icon: barcode" class="anticon anticon-barcode"><svg
-          viewBox="64 64 896 896" focusable="false" class="" data-icon="barcode" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-          <path
-            d="M120 160H72c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8zm833 0h-48c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8zM200 736h112c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8H200c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm321 0h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm126 0h178c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8H647c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm-255 0h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm-79 64H201c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h112c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm257 0h-48c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm256 0H648c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h178c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm-385 0h-48c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z">
-          </path>
-        </svg>
-      </i>
-    </button>
+    <div class="ant-row ant-form-item field_payment_mode">
+      <div class="ant-col ant-form-item-label">
+        <label for="modal_form_payment_mode" class="ant-form-item-required">
+          <span>Forma de pagamento</span>
+        </label>
+      </div>
+      <div class="ant-col ant-form-item-control-wrapper">
+        <div class="ant-form-item-control">
+          <span class="ant-form-item-children">
+            <div class="ant-radio-group ant-radio-group-outline" id="modal_form_payment_mode">
+              <label class="ant-radio-button-wrapper ant-radio-button-wrapper-checked">
+                <span class="ant-radio-button ant-radio-button-checked">
+                  <input name="payment_mode" type="radio" class="ant-radio-button-input" value="boleto" checked>
+                  <span class="ant-radio-button-inner"></span>
+                </span>
+                <span>
+                  <i aria-label="icon: user" class="anticon anticon-user">
+                    <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="user" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                      <path d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path>
+                    </svg>
+                  </i>
+                  &nbsp;Boleto
+                </span>
+              </label><label class="ant-radio-button-wrapper">
+                <span class="ant-radio-button">
+                  <input name="payment_mode" type="radio" class="ant-radio-button-input" value="cartao">
+                  <span class="ant-radio-button-inner"></span>
+                </span>
+                <span>
+                  <i aria-label="icon: bank" class="anticon anticon-bank">
+                    <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="bank" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                      <path d="M894 462c30.9 0 43.8-39.7 18.7-58L530.8 126.2a31.81 31.81 0 0 0-37.6 0L111.3 404c-25.1 18.2-12.2 58 18.8 58H192v374h-72c-4.4 0-8 3.6-8 8v52c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-52c0-4.4-3.6-8-8-8h-72V462h62zM512 196.7l271.1 197.2H240.9L512 196.7zM264 462h117v374H264V462zm189 0h117v374H453V462zm307 374H642V462h118v374z"></path>
+                    </svg>
+                  </i>
+                  &nbsp;Cartão de Crédito
+                </span>
+              </label>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div id="boleto">
+      <button type="button" class="ant-btn payment" style="width: 100%;">
+        <span>Gerar Boleto Bancário</span>
+        <i aria-label="icon: barcode" class="anticon anticon-barcode"><svg
+            viewBox="64 64 896 896" focusable="false" class="" data-icon="barcode" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+            <path
+              d="M120 160H72c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8zm833 0h-48c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8zM200 736h112c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8H200c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm321 0h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm126 0h178c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8H647c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm-255 0h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm-79 64H201c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h112c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm257 0h-48c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm256 0H648c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h178c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm-385 0h-48c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z">
+            </path>
+          </svg>
+        </i>
+      </button>
+    </div>
+    <div id="cartao" style="display: none">
+      <div class="rccs">
+        <div class="rccs__card rccs__card--unknown">
+          <div class="rccs__card--front">
+            <div class="rccs__card__background"></div>
+            <div class="rccs__issuer"></div>
+            <div class="rccs__cvc__front"></div>
+            <div class="rccs__number">•••• •••• •••• ••••</div>
+            <div class="rccs__name">YOUR NAME HERE</div>
+            <div class="rccs__expiry">
+              <div class="rccs__expiry__valid">valid thru</div>
+              <div class="rccs__expiry__value">••/••</div>
+            </div>
+            <div class="rccs__chip"></div>
+          </div>
+          <div class="rccs__card--back">
+            <div class="rccs__card__background"></div>
+            <div class="rccs__stripe"></div>
+            <div class="rccs__signature"></div>
+            <div class="rccs__cvc"></div>
+            <div class="rccs__issuer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="ant-row ant-form-item" style="margin: 0px auto 7px;">
+        <div class="ant-col ant-form-item-control-wrapper">
+          <div class="ant-form-item-control">
+            <span class="ant-form-item-children">
+              <input name="cc_number" placeholder="Número do cartão" minlength="10" maxlength="19" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_cc_number" value="">
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="ant-row ant-form-item" style="margin: 0px auto 7px;">
+        <div class="ant-col ant-form-item-control-wrapper">
+          <div class="ant-form-item-control">
+            <span class="ant-form-item-children">
+              <input name="cc_name" placeholder="Nome do titular do cartão" minlength="5" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_cc_name" value="">
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="ant-row-flex ant-row-flex-space-between">
+        <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-md-offset-0">
+          <div class="ant-row ant-form-item" style="margin: 0px auto 7px;">
+            <div class="ant-col ant-form-item-control-wrapper">
+              <div class="ant-form-item-control">
+                <span class="ant-form-item-children">
+                  <input name="cc_expiry" placeholder="Data de validade" maxlength="5" minlength="4" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_cc_expiry" value="">
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-11 ant-col-md-offset-0">
+          <div class="ant-row ant-form-item" style="margin: 0px auto 7px;">
+            <div class="ant-col ant-form-item-control-wrapper">
+              <div class="ant-form-item-control">
+                <span class="ant-form-item-children">
+                  <input name="cvc" placeholder="Código de segurança" maxlength="4" minlength="3" class="ant-input ant-input-lg darkplaceholder" type="text" id="modal_form_cvc" value="">
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="ant-row-flex ant-row-flex-space-between steps-action">
@@ -24,7 +135,7 @@
       </button>
     </div>
     <div class="ant-col ant-col-12">
-      <button form="Form3" type="submit" class="ant-btn ant-btn-secondary">
+      <button form="Form3" type="submit" class="ant-btn ant-btn-secondary" disabled>
         <span>Finalizar</span>
       </button>
     </div>
