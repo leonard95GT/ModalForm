@@ -1,6 +1,6 @@
 [
   {
-    "id": "virtual-office-basic",
+    "id": 1,
     "url": "/aluguel-escritorio-virtual-promocao/",
     "title": "Aluguel de escritório virtual promoção",
     "name": "Escritório Virtual",
@@ -11,7 +11,7 @@
     ]
   },
   {
-    "id": "virtual-office-pro",
+    "id": 2,
     "url": "/aluguel-escritorio-virtual/",
     "title": "Aluguel de escritório virtual",
     "name": "Escritório Virtual Profissional",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "id": "virtual-office-corporate",
+    "id": 3,
     "url": "/aluguel-escritorio-virtual-atendimento-telefonico/",
     "title": "Aluguel de escritório virtual atendimento telefônico",
     "name": "Escritório Virtual Corporativo",
@@ -32,7 +32,7 @@
     ]
   },
   {
-    "id": "dedicated-office",
+    "id": 4,
     "url": "/aluguel-mesa-dedicada/",
     "title": "Aluguel de mesa dedicada",
     "name": "Escritório Dedicado",

@@ -19,7 +19,15 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var $ = jQuery,
-    temp = {},
+    temp = {
+  site: {
+    prefix: "".concat(window.location.origin, "/modal-form")
+  },
+  api: {
+    products: "".concat(window.location.origin, "/modal-form/products.json"),
+    checkout: "./"
+  }
+},
     forms = {
   Form1: {
     plan: {
@@ -185,13 +193,13 @@ var debounce = function debounce(func, wait) {
 $(function () {
   var index = 0;
   $(document).tooltip();
-  $.ajax("products.json").then(function (products) {
+  $.ajax(temp.api.products).then(function (products) {
     var _products = products.reduce(function (r, p) {
       return _objectSpread(_objectSpread({}, r), {}, _defineProperty({}, p.id, p));
     }, {});
 
-    $.ajax("modal.html").then(function (modal) {
-      $.when($.ajax("form1.html"), $.ajax("form2.html"), $.ajax("form3.html")).done(function (_ref, _ref2, _ref3) {
+    $.ajax("".concat(temp.site.prefix, "/modal/modal.html")).then(function (modal) {
+      $.when($.ajax("".concat(temp.site.prefix, "/modal/form1.html")), $.ajax("".concat(temp.site.prefix, "/modal/form2.html")), $.ajax("".concat(temp.site.prefix, "/modal/form3.html"))).done(function (_ref, _ref2, _ref3) {
         var _ref4 = _slicedToArray(_ref, 1),
             form1 = _ref4[0];
 
@@ -393,7 +401,12 @@ function submit() {
     delete checkout.cvc;
   }
 
-  console.log(customer, checkout);
+  $.post(temp.api.checkout, {
+    customer: customer,
+    checkout: checkout
+  }).done(function (res) {
+    console.log(res);
+  });
 }
 
 function prevStep() {
