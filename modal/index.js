@@ -18,13 +18,17 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var _window$location = window.location,
+    origin = _window$location.origin,
+    pathname = _window$location.pathname;
+var baseUrl = "".concat(origin).concat(pathname.split('/').slice(0, -1).join('/'));
 var $ = jQuery,
     temp = {
   site: {
-    prefix: "".concat(window.location.origin, "/modal-form")
+    prefix: "".concat(baseUrl)
   },
   api: {
-    products: "".concat(window.location.origin, "/modal-form/products.json"),
+    products: "".concat(baseUrl, "/products.json"),
     checkout: "./"
   }
 },
